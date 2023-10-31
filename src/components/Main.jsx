@@ -1,17 +1,21 @@
-import TextComponents from './Text'
+import { /* StyleSheet, */ View } from 'react-native'
+import RepositoryList from './RepositoryList'
+import AppBar from './AppBar'
+import theme from '../theme'
 
-const { Text, Subheading } = TextComponents
+/* const styles = StyleSheet.create({
+	container: {
+		flexGrow: 1,
+		flexShrink: 1,
+	},
+}) */
 
 const Main = () => {
 	return (
-		<>
-			<Text>Simple text</Text>
-			<Text style={{ paddingBottom: 10 }}>Text with custom style</Text>
-			<Subheading>
-				Bold subheading
-			</Subheading>
-			<Text color="textSecondary">Text with secondary color</Text>
-		</>
+		<View style={theme.mainContainer}>
+			<AppBar />
+			<RepositoryList />
+		</View>
 	)
 }
 

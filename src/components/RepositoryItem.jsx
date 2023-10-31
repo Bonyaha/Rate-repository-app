@@ -1,35 +1,71 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Image, StyleSheet } from 'react-native'
+import TextComponents from './Text'
+const { Text, Subheading } = TextComponents
+import theme from '../theme'
 
 const styles = StyleSheet.create({
 	container: {
-		padding: 10,
-		backgroundColor: 'white',
+		flexDirection: 'row', // Change the container to a row layout
+		padding: 10, // Add padding to separate the items
 	},
-	image: {
-		width: 50,
-		height: 50,
-		borderRadius: 5,
+	leftContainer: {
+		marginRight: 12,
 	},
-	title: {
-		fontWeight: 'bold',
+	rightContainer: {
+		/* flex: 1, */ // Allow the right container to take the remaining space
 	},
-	description: {
-		color: 'gray',
+	descriptionContainer: {
+		marginBottom: 10,
 	},
+	detailsContainer: {
+		flexDirection: 'row',
+		justifyContent: 'space-around',
+	},
+
 })
 
 const RepositoryItem = ({ item }) => {
+	// Function to format numbers to thousands with one decimal and "k" suffix
+	const formatNumber = (number) => {
+		if (number >= 1000) {
+			return (number / 1000).toFixed(1) + 'k'
+		}
+		return number.toString()
+	}
+
 	return (
-		<View style={styles.container}>
-			<Image source={{ uri: item.ownerAvatarUrl }} style={styles.image} />
-			<Text style={styles.title}>{item.fullName}</Text>
-			<Text style={styles.description}>{item.description}</Text>
-			<Text>Language: {item.language}</Text>
-			<Text>Stars: {item.stargazersCount}</Text>
-			<Text>Forks: {item.forksCount}</Text>
-			<Text>Reviews: {item.reviewCount}</Text>
-			<Text>Rating: {item.ratingAverage}</Text>
+		<View style={theme.container}>
+			<View style={styles.container}>
+				<View style={styles.leftContainer}>
+					<Image source={{ uri: item.ownerAvatarUrl }} style={theme.image} />
+				</View>
+				<View style={styles.rightContainer}>
+					<Subheading fontWeight="bold">{item.fullName}</Subheading>
+					<View style={styles.descriptionContainer}>
+						<Text color="textSecondary">{item.description}</Text>
+						<Text backgroundColor='primary'>{item.language}</Text>
+					</View>
+				</View>
+			</View>
+			<View style={styles.detailsContainer}>
+				<View style={styles.detailItem}>
+					<Text fontWeight='bold'>{formatNumber(item.stargazersCount)}</Text>
+					<Text>Stars</Text>
+				</View>
+				<View style={styles.detailItem}>
+					<Text fontWeight='bold'>{formatNumber(item.forksCount)}</Text>
+					<Text>Forks</Text>
+				</View>
+				<View style={styles.detailItem}>
+					<Text fontWeight='bold'>{formatNumber(item.reviewCount)}</Text>
+					<Text>Reviews</Text>
+				</View>
+				<View style={styles.detailItem}>
+					<Text fontWeight='bold'>{formatNumber(item.ratingAverage)}</Text>
+					<Text>Rating</Text>
+				</View>
+			</View>
 		</View>
 	)
 }

@@ -1,4 +1,5 @@
 import { View, StyleSheet, Pressable, Text } from 'react-native'
+import { Link } from 'react-router-native'
 import Constants from 'expo-constants'
 import theme from '../theme'
 
@@ -21,7 +22,16 @@ const AppBar = () => {
 	return <View style={styles.container}>
 		<Pressable onPress={() => { }}>
 			<View style={theme.tab}>
-				<Text style={theme.tabText}>Repositories</Text>
+				<Link to="/" component={View} style={theme.tabItem}>
+					<Text style={theme.tabText}>Repositories</Text>
+				</Link>
+			</View>
+		</Pressable>
+		<Pressable onPress={() => { }}>
+			<View style={theme.tab}>
+				<Link to="/signin" component={View} style={theme.tabItem}>
+					<Text style={theme.tabText}>Sign in</Text>
+				</Link>
 			</View>
 		</Pressable>
 	</View>

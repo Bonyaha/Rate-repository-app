@@ -6,17 +6,18 @@ import theme from '../theme'
 
 const styles = StyleSheet.create({
 	container: {
-		flexDirection: 'row', // Change the container to a row layout
-		padding: 10, // Add padding to separate the items
+		flexDirection: 'row',
+		padding: 10,
 	},
 	leftContainer: {
 		marginRight: 12,
 	},
 	rightContainer: {
-		/* flex: 1, */ // Allow the right container to take the remaining space
+		flex: 1,
 	},
 	descriptionContainer: {
-		marginBottom: 10,
+		marginTop: 5,
+		marginBottom: 12,
 	},
 	detailsContainer: {
 		flexDirection: 'row',

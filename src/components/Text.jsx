@@ -28,8 +28,9 @@ const styles = StyleSheet.create({
 	backgroundPrimary: {
 		backgroundColor: theme.colors.primary,
 		color: 'white',
-		width: 'fit-content',
+		alignSelf: 'flex-start',
 		borderRadius: 5,
+		marginTop: 5,
 		padding: 5,
 	}
 })

@@ -5,11 +5,18 @@ import Constants from 'expo-constants'
 const styles = StyleSheet.create({
 	container: {
 		paddingTop: Constants.statusBarHeight,
-		backgroundColor: 'red',
+		backgroundColor: 'lightblue',
+		flexDirection: 'row',
+		justifyContent: 'flex-start',
+		paddingHorizontal: 1,
+	},
+	link: {
+		paddingHorizontal: 1, // Add padding for spacing between links
 	},
 	tab: {
 		backgroundColor: '#24292e',
-		padding: 12,
+		padding: 8,
+		borderRadius: 5
 	},
 	tabText: {
 		color: 'white',
@@ -20,14 +27,14 @@ const styles = StyleSheet.create({
 const AppBar = () => {
 	return (
 		<View style={styles.container}>
-			<Pressable onPress={() => { }}>
+			<Pressable style={styles.link} onPress={() => { }}>
 				<View style={styles.tab}>
 					<Link to="/" component={View}>
 						<Text style={styles.tabText}>Repositories</Text>
 					</Link>
 				</View>
 			</Pressable>
-			<Pressable onPress={() => { }}>
+			<Pressable style={styles.link} onPress={() => { }}>
 				<View style={styles.tab}>
 					<Link to="/signin" component={View}>
 						<Text style={styles.tabText}>Sign in</Text>

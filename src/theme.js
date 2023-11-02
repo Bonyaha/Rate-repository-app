@@ -26,7 +26,7 @@ const theme = {
 	},
 	separator: {
 		height: 10,
-		/* backgroundColor: 'grey', */
+		backgroundColor: 'grey',
 	},
 
 	/* from main */
@@ -36,16 +36,7 @@ const theme = {
 	mainBackground: {
 		backgroundColor: '#e1e4e8'
 	},
-	/* from AppBar */
-	tab: {
-		backgroundColor: '#24292e',
-		padding: 12,
-		alignItems: 'center',
-	},
-	tabText: {
-		color: 'white',
-		fontSize: 16,
-	},
+
 }
 
 export default theme

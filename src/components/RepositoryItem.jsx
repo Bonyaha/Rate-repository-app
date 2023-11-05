@@ -1,7 +1,6 @@
 import React from 'react'
 import { View, Image, StyleSheet } from 'react-native'
-import TextComponents from './Text'
-const { Text, Subheading } = TextComponents
+import { Text, Subheading } from './Text'
 import theme from '../theme'
 
 const styles = StyleSheet.create({

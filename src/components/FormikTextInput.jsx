@@ -2,8 +2,7 @@ import { StyleSheet } from 'react-native'
 import { useField } from 'formik'
 
 import TextInput from './TextInput'
-import TextComponents from './Text'
-const { Text } = TextComponents
+import { Text } from './Text'
 
 const styles = StyleSheet.create({
 	errorText: {

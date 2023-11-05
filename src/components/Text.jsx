@@ -59,7 +59,7 @@ const Subheading = ({ style, ...props }) => {
 	)
 }
 
-export default {
+export {
 	Text,
 	Subheading,
 }

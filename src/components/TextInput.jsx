@@ -2,6 +2,7 @@ import { TextInput as NativeTextInput, StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
 	input: {
+		margin: 5,
 		borderWidth: 1,
 		borderColor: 'gray',
 		padding: 10,

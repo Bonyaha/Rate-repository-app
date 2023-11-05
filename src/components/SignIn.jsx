@@ -6,7 +6,7 @@ import FormikTextInput from './FormikTextInput'
 
 const styles = StyleSheet.create({
 	button: {
-		marginTop: 10,
+		marginTop: 5,
 		padding: 10,
 		borderRadius: 5,
 		backgroundColor: 'blue',

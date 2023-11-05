@@ -20,7 +20,7 @@ const TextInput = ({ style, error, ...props }) => {
 		error && styles.errorInput,
 		style
 	]
-
+	console.log(error)
 	return <NativeTextInput style={textInputStyle} {...props} />
 }
 

@@ -1,4 +1,4 @@
-import { /* StyleSheet, */ View } from 'react-native'
+import { View } from 'react-native'
 import { Route, Routes, Navigate } from 'react-router-native'
 import RepositoryList from './RepositoryList'
 import SignIn from './SignIn'

@@ -1,8 +1,9 @@
 import { FlatList, View } from 'react-native'
 import RepositoryItem from './RepositoryItem'
 import theme from '../theme'
+import useRepositories from '../hooks/useRepositories'
 
-const repositories = [
+/* const repositories = [
 	{
 		id: 'jaredpalmer.formik',
 		fullName: 'jaredpalmer/formik',
@@ -47,14 +48,20 @@ const repositories = [
 		reviewCount: 0,
 		ownerAvatarUrl: 'https://avatars3.githubusercontent.com/u/13142323?v=4',
 	},
-]
+] */
 
 const ItemSeparator = () => <View style={theme.separator} />
 
 const RepositoryList = () => {
+	const { repositories } = useRepositories()
+
+	const repositoryNodes = repositories
+		? repositories.edges.map(edge => edge.node)
+		: []
+
 	return (
 		<FlatList
-			data={repositories}
+			data={repositoryNodes}
 			renderItem={({ item }) => <RepositoryItem item={item} />}
 			keyExtractor={(item) => item.id}
 			ItemSeparatorComponent={ItemSeparator}

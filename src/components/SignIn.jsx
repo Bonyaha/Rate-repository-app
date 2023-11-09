@@ -2,8 +2,9 @@ import React from 'react'
 import { Text, View, Pressable, StyleSheet } from 'react-native'
 import { Formik } from 'formik'
 import * as yup from 'yup'
-
+import { useNavigate } from 'react-router-native'
 import FormikTextInput from './FormikTextInput'
+import useSignIn from '../hooks/useSignIn'
 
 const validationSchema = yup.object().shape({
 	username: yup
@@ -11,7 +12,7 @@ const validationSchema = yup.object().shape({
 		/* .min(1, 'Weight must be greater or equal to 1') */
 		.required('Username is required'),
 	password: yup
-		.number()
+		.string() // Accept both string and number
 		/* .min(0.5, 'Height must be greater or equal to 0.5') */
 		.required('Password is required'),
 })
@@ -35,8 +36,17 @@ const styles = StyleSheet.create({
 })
 
 const SignIn = () => {
-	const onSubmit = (values) => {
-		console.log(values)
+	const [signIn] = useSignIn()
+	const navigate = useNavigate()
+	const onSubmit = async (values) => {
+		const { username, password } = values
+
+		try {
+			await signIn({ username, password })
+			navigate('/')
+		} catch (e) {
+			console.log(e)
+		}
 	}
 
 	return (

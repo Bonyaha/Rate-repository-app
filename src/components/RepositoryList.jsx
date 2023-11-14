@@ -61,6 +61,7 @@ const RepositoryList = () => {
 
 	return (
 		<FlatList
+			contentContainerStyle={{ paddingBottom: 95 }}
 			data={repositoryNodes}
 			renderItem={({ item }) => <RepositoryItem item={item} />}
 			keyExtractor={(item) => item.id}

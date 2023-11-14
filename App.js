@@ -27,16 +27,5 @@ const App = () => {
   )
 }
 
-/* const apolloClient = createApolloClient()
-const App = () => {
-  return (
-    <NativeRouter>
-      <ApolloProvider client={apolloClient}>
-        <Main />
-      </ApolloProvider>
-    </NativeRouter>
-  )
-} */
-
 export default App;
 

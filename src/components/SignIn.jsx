@@ -11,7 +11,7 @@ const validationSchema = yup.object().shape({
 		.string()
 		.required('Username is required'),
 	password: yup
-		.string() // Accept both string and number
+		.string()
 		.required('Password is required'),
 })
 

@@ -3,6 +3,7 @@ import Constants from 'expo-constants'
 import { setContext } from '@apollo/client/link/context'
 
 const apolloUri = Constants.manifest.extra.apolloUri
+console.log(apolloUri)
 const httpLink = createHttpLink({
 	uri: apolloUri,
 })

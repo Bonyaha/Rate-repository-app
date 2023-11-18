@@ -25,9 +25,12 @@ const styles = StyleSheet.create({
 
 })
 
-const RepositoryItem = ({ item }) => {
+const RepositoryItem = ({ item, shouldFormat = true }) => {
 	// Function to format numbers to thousands with one decimal and "k" suffix
 	const formatNumber = (number) => {
+		if (!shouldFormat) {
+			return number.toString()
+		}
 		if (number >= 1000) {
 			return (number / 1000).toFixed(1) + 'k'
 		}
@@ -35,7 +38,7 @@ const RepositoryItem = ({ item }) => {
 	}
 
 	return (
-		<View style={theme.container}>
+		<View testID="repositoryItem" style={theme.container}>
 			<View style={styles.container}>
 				<View style={styles.leftContainer}>
 					<Image source={{ uri: item.ownerAvatarUrl }} style={theme.image} />

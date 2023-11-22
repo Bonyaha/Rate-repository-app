@@ -9,6 +9,13 @@
 		],
 ```
 I did this because Eslint gave me an error in App.js file in this line: **import { StatusBar } from 'expo-status-bar'**
+
+I've added file advancedFeatures.ini to the path C:/Users/your user name/.android with this content:
+Vulkan = off
+GLDirectMem = on
+
+it was neccesary because Chrome browser didn't open on emulator
+
 ## Comands:
 1.npm start - start the Expo development tools
 2. npm run lint - check linting rules2. 

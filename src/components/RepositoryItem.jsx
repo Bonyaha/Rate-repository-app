@@ -22,7 +22,13 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'space-around',
 	},
+	detailItem: {
+		alignItems: 'center',
+	},
 
+	detailText: {
+		marginTop: 5,
+	},
 })
 
 const RepositoryItem = ({ item, shouldFormat = true }) => {
@@ -54,19 +60,19 @@ const RepositoryItem = ({ item, shouldFormat = true }) => {
 			<View style={styles.detailsContainer}>
 				<View style={styles.detailItem}>
 					<Text fontWeight='bold'>{formatNumber(item.stargazersCount)}</Text>
-					<Text>Stars</Text>
+					<Text style={styles.detailText}>Stars</Text>
 				</View>
 				<View style={styles.detailItem}>
 					<Text fontWeight='bold'>{formatNumber(item.forksCount)}</Text>
-					<Text>Forks</Text>
+					<Text style={styles.detailText}>Forks</Text>
 				</View>
 				<View style={styles.detailItem}>
 					<Text fontWeight='bold'>{formatNumber(item.reviewCount)}</Text>
-					<Text>Reviews</Text>
+					<Text style={styles.detailText}>Reviews</Text>
 				</View>
 				<View style={styles.detailItem}>
 					<Text fontWeight='bold'>{formatNumber(item.ratingAverage)}</Text>
-					<Text>Rating</Text>
+					<Text style={styles.detailText}>Rating</Text>
 				</View>
 			</View>
 		</View>

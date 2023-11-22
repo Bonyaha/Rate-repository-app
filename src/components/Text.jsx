@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
 		fontFamily: theme.fonts.main,
 		fontSize: theme.fontSizes.subheading,
 		fontWeight: theme.fontWeights.bold,
+
 	},
 	colorPrimary: {
 		color: theme.colors.primary,

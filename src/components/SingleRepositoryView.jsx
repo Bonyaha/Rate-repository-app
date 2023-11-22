@@ -61,7 +61,6 @@ const SingleRepositoryView = () => {
 	const hasReviews = repository.reviews.edges.length > 0
 
 	if (!hasReviews) {
-		// If there are no reviews, render a message or any other UI element
 		return (
 			<View>
 				<RepositoryInfo repository={repository} />

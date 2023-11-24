@@ -53,6 +53,14 @@ const AppBar = () => {
 
 				<Pressable style={styles.link} onPress={() => { }}>
 					<View style={styles.tab}>
+						<Link to="/review" component={View}>
+							<Text style={styles.tabText}>Create a Review</Text>
+						</Link>
+					</View>
+				</Pressable>
+
+				<Pressable style={styles.link} onPress={() => { }}>
+					<View style={styles.tab}>
 						{data?.me ? (
 							<Text style={styles.tabText} onPress={handleSignOut}>
 								Sign out

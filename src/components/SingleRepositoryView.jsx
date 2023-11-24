@@ -1,17 +1,14 @@
 import React from 'react'
 import { View, Button, Linking, FlatList } from 'react-native'
 import { useParams } from 'react-router-native'
-import { useQuery } from '@apollo/client'
 
 import RepositoryItem from './RepositoryItem'
-import { GET_REPOSITORY } from '../graphql/queries'
 import { Text, Subheading } from './Text'
 import theme from '../theme'
 import ReviewItem from './ReviewItem'
+import useRepository from '../hooks/useRepository'
 
 const ItemSeparator = () => <View style={theme.separator} />
-
-
 
 const RepositoryInfo = ({ repository }) => {
 
@@ -29,14 +26,10 @@ const RepositoryInfo = ({ repository }) => {
 	)
 }
 
-
-
 const SingleRepositoryView = () => {
 	const { id } = useParams()
 
-	const { loading, error, data } = useQuery(GET_REPOSITORY, {
-		variables: { id },
-	})
+	const { loading, error, repository } = useRepository(id)
 
 	if (loading) {
 		return (
@@ -46,7 +39,7 @@ const SingleRepositoryView = () => {
 		)
 	}
 
-	if (error || !data || !data.repository) {
+	if (error || !repository) {
 		return (
 			<View>
 				<Text>Error: {error ? error.message : 'Repository not found'}</Text>
@@ -54,7 +47,7 @@ const SingleRepositoryView = () => {
 		)
 	}
 
-	const { repository } = data
+
 	console.log(repository)
 
 	// Check if there are reviews available

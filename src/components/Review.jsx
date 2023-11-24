@@ -11,7 +11,6 @@ const Review = () => {
 
 	const onSubmit = async (review) => {
 		console.log(review)
-		//const { ownerUsername, repositoryName, rating, review } = values
 
 		try {
 			const response = await createReview(review)
@@ -19,7 +18,6 @@ const Review = () => {
 			const repositoryId = response.createReview.repositoryId
 			console.log(repositoryId)
 			navigate(`/repositories/${repositoryId}`)
-			//console.log('in try')
 		} catch (e) {
 			console.log(e)
 		}
@@ -28,9 +26,6 @@ const Review = () => {
 
 	return (
 		<ReviewContainer onSubmit={onSubmit} />
-		/* <View>
-			<Text>Test</Text>
-		</View> */
 	)
 }
 

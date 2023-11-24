@@ -37,7 +37,6 @@ const AppBar = () => {
 		await authStorage.removeAccessToken()
 		// Reset the Apollo Client store
 		apolloClient.resetStore()
-
 	}
 
 	return (

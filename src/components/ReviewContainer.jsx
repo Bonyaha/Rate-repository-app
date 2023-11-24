@@ -46,20 +46,16 @@ export const ReviewContainer = ({ onSubmit }) => {
 		// Convert the 'rating' field to a number
 		const parsedValues = {
 			...values,
-			rating: parseInt(values.rating, 10), // Parse 'rating' as a base-10 integer
+			rating: parseInt(values.rating, 10),
 		}
 
-		onSubmit(parsedValues) // Pass the parsed values to the onSubmit function
+		onSubmit(parsedValues)
 	}
 	return (
 		<Formik
 			initialValues={initialValues}
 			onSubmit={handleFormSubmit}
 			validationSchema={validationSchema}
-			parse={(values) => ({
-				...values,
-				rating: values.rating !== '' ? parseInt(values.rating, 10) : '',
-			})}
 		>
 			{({ handleSubmit }) => (
 				<View>

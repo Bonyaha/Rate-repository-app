@@ -50,14 +50,16 @@ const AppBar = () => {
 					</View>
 				</Pressable>
 
-				<Pressable style={styles.link} onPress={() => { }}>
-					<View style={styles.tab}>
-						<Link to="/review" component={View}>
-							<Text style={styles.tabText}>Create a Review</Text>
-						</Link>
-					</View>
-				</Pressable>
-
+				{data?.me ? (
+					<Pressable style={styles.link} onPress={() => { }}>
+						<View style={styles.tab}>
+							<Link to="/review" component={View}>
+								<Text style={styles.tabText}>Create a Review</Text>
+							</Link>
+						</View>
+					</Pressable>
+				) : null
+				}
 				<Pressable style={styles.link} onPress={() => { }}>
 					<View style={styles.tab}>
 						{data?.me ? (
@@ -70,9 +72,22 @@ const AppBar = () => {
 								<Text style={styles.tabText}>Sign in</Text>
 							</Link>
 							)
+
 						}
 					</View>
 				</Pressable>
+
+				{data?.me ? null : (
+					<Pressable style={styles.link} onPress={() => { }}>
+						<View style={styles.tab}>
+							<Link to="/signup" component={View}>
+								<Text style={styles.tabText}>Sign up</Text>
+							</Link>
+						</View>
+					</Pressable>
+				)
+				}
+
 			</ScrollView>
 		</View>
 	)

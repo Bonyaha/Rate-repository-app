@@ -11,7 +11,6 @@ import useRepository from '../hooks/useRepository'
 const ItemSeparator = () => <View style={theme.separator} />
 
 const RepositoryInfo = ({ repository }) => {
-
 	const handleOpenGitHub = async () => {
 		if (repository && repository.url) {
 			await Linking.openURL(repository.url)

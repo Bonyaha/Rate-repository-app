@@ -1,9 +1,8 @@
-import React from 'react'
 import { Text, View, Pressable, StyleSheet } from 'react-native'
 import { Formik } from 'formik'
 import * as yup from 'yup'
 import FormikTextInput from './FormikTextInput'
-
+import { useTogglePasswordVisibility } from '../hooks/useTogglePasswordVisibility'
 
 const validationSchema = yup.object().shape({
 	username: yup
@@ -42,6 +41,14 @@ const styles = StyleSheet.create({
 
 
 export const SignUpContainer = ({ onSubmit }) => {
+	/* const [secureTextEntry, setSecureTextEntry] = useState(true) */
+	const { passwordVisibility, rightIcon, handlePasswordVisibility } =
+		useTogglePasswordVisibility()
+
+	/* const togglePasswordVisibility = () => {
+		setSecureTextEntry(!secureTextEntry)
+	} */
+
 	return (
 		<Formik
 			initialValues={{
@@ -55,8 +62,13 @@ export const SignUpContainer = ({ onSubmit }) => {
 			{({ handleSubmit }) => (
 				<View>
 					<FormikTextInput name="username" placeholder="Username" />
-					<FormikTextInput name="password" placeholder="Password" secureTextEntry />
-					<FormikTextInput name="confirmPassword" placeholder="Confirm Password" secureTextEntry />
+					<FormikTextInput name="password" placeholder="Password" secureTextEntry={passwordVisibility}
+						handlePasswordVisibility={handlePasswordVisibility}
+						rightIcon={rightIcon} />
+					<FormikTextInput name="confirmPassword" placeholder="Confirm Password" secureTextEntry={passwordVisibility}
+						handlePasswordVisibility={handlePasswordVisibility}
+						rightIcon={rightIcon}
+					/>
 					<Pressable
 						style={({ pressed }) => [
 							styles.button, pressed && styles.pressedButton

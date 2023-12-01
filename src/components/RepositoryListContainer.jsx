@@ -8,7 +8,7 @@ import { Picker } from '@react-native-picker/picker'
 const ItemSeparator = () => <View style={theme.separator} />
 
 export const RepositoryListContainer = ({ repositories, refetch, shouldFormat, }) => {
-	const navigate = useNavigate() // Get navigation object
+	const navigate = useNavigate()
 
 	const [orderBy, setOrderBy] = useState('CREATED_AT')
 

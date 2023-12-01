@@ -59,6 +59,7 @@ export const RepositoryListContainer = ({ repositories, refetch, shouldFormat, }
 			ListHeaderComponent={
 				<View style={{ padding: 10 }}>
 					<Picker selectedValue={orderBy} onValueChange={handleOrderByChange}>
+						<Picker.Item label="Select an item..." value="" enabled={false} />
 						<Picker.Item label="Latest repositories" value="CREATED_AT" />
 						<Picker.Item label="Highest rated repositories" value="RATING_AVERAGE_HIGHEST" />
 						<Picker.Item label="Lowest rated repositories" value="RATING_AVERAGE_LOWEST" />

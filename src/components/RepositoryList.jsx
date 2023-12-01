@@ -2,9 +2,13 @@ import useRepositories from '../hooks/useRepositories'
 import { RepositoryListContainer } from './RepositoryListContainer'
 
 const RepositoryList = () => {
-	const { repositories } = useRepositories()
-
-	return <RepositoryListContainer repositories={repositories} />
+	//console.log('I am in RepoList')
+	const { repositories, refetch } = useRepositories({})
+	//console.log(repositories)
+	return <RepositoryListContainer
+		repositories={repositories}
+		refetch={refetch}
+	/>
 }
 
 export default RepositoryList

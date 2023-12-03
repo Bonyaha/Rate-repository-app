@@ -1,29 +1,43 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import useRepositories from '../hooks/useRepositories'
-import { useNavigate } from 'react-router-native'
+import { useNavigate, useLocation } from 'react-router-native'
 import { RepositoryListContainer } from './RepositoryListContainer'
 
+
 const RepositoryList = () => {
-	//console.log('I am in RepoList')
+
+	console.log('I am in RepoList')
 	const [searchKeyword, setSearchKeyword] = useState('')
+	console.log(searchKeyword)
 	const { repositories, refetch } = useRepositories({ searchKeyword })
-	//console.log(repositories)
 	const navigate = useNavigate()
+	const location = useLocation()
+
 
 	const handleSearch = (keyword) => {
+		console.log('In handle search')
 		setSearchKeyword(keyword)
 		refetch({ searchKeyword: keyword })
 	}
 
 	const handleRepositoryPress = (id) => {
-		navigate(`/repositories/${id}`) // Navigate to SingleRepositoryView component
+		navigate(`/repositories/${id}`)
 	}
-	return <RepositoryListContainer
-		handleRepositoryPress={handleRepositoryPress}
-		repositories={repositories}
-		refetch={refetch}
-		onSearch={handleSearch}
-	/>
+
+	useEffect(() => {
+		if (location.pathname === '/') {
+			setSearchKeyword('')
+		}
+	}, [location])
+
+	return (
+		<RepositoryListContainer
+			handleRepositoryPress={handleRepositoryPress}
+			repositories={repositories}
+			refetch={refetch}
+			onSearch={handleSearch}
+		/>
+	)
 }
 
 export default RepositoryList

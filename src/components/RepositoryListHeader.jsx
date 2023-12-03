@@ -7,7 +7,7 @@ import { Picker } from '@react-native-picker/picker'
 
 const RepositoryListHeader = ({ onSearch, refetch }) => {
 	const [searchQuery, setSearchQuery] = useState('')
-	const [debouncedSearchQuery] = useDebounce(searchQuery, 200)
+	const [debouncedSearchQuery] = useDebounce(searchQuery, 100)
 	const [orderBy, setOrderBy] = useState('CREATED_AT')
 	const location = useLocation()
 
@@ -72,3 +72,4 @@ const RepositoryListHeader = ({ onSearch, refetch }) => {
 }
 
 export default RepositoryListHeader
+

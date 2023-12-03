@@ -17,7 +17,7 @@ const RepositoryList = () => {
 	const handleSearch = (keyword) => {
 		console.log('In handle search')
 		setSearchKeyword(keyword)
-		refetch({ searchKeyword: keyword })
+		refetch({ orderBy: 'CREATED_AT', orderDirection: 'DESC', searchKeyword: keyword })
 	}
 
 	const handleRepositoryPress = (id) => {

@@ -16,6 +16,7 @@ GLDirectMem = on
 
 it was neccesary because Chrome browser didn't open on emulator
 
+### Debouncing in filtering doesn't working good. Even so I used 500 and 200 and 100 in time (useDebounce(searchQuery, 0)), it was extremely slow. I don't know why it's happenning (maybe because of dependancies issues and me using --legal-peer-deps flag every time).So I just put 0. In trade-off, I can't use now searchbarRef.current.blur() for removing focus, because it happens so fast, that focus lost after every keystroke.
 ## Comands:
 1.npm start - start the Expo development tools
 2. npm run lint - check linting rules2. 

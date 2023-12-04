@@ -7,7 +7,7 @@ import { Picker } from '@react-native-picker/picker'
 
 const RepositoryListHeader = ({ onSearch, refetch }) => {
 	const [searchQuery, setSearchQuery] = useState('')
-	const [debouncedSearchQuery] = useDebounce(searchQuery, 100)
+	const [debouncedSearchQuery] = useDebounce(searchQuery, 0)
 	const [orderBy, setOrderBy] = useState('CREATED_AT')
 	const location = useLocation()
 
@@ -40,9 +40,9 @@ const RepositoryListHeader = ({ onSearch, refetch }) => {
 
 	useEffect(() => {
 		onSearch(debouncedSearchQuery)
-		if (searchbarRef.current) {
+		/* if (searchbarRef.current) {
 			searchbarRef.current.blur() // Remove focus
-		}
+		} */
 	}, [debouncedSearchQuery])
 
 	useEffect(() => {

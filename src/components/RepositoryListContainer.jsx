@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+/* import React, { useState } from 'react'
 import { FlatList, View, Pressable } from 'react-native'
 import RepositoryItem from './RepositoryItem'
 import theme from '../theme'
@@ -68,4 +68,55 @@ export const RepositoryListContainer = ({ repositories, refetch, shouldFormat, }
 			}
 		/>
 	)
+} */
+
+// RepositoryListContainer.js
+import React /* { useEffect, useState } */ from 'react'
+import { FlatList, View, Pressable } from 'react-native'
+import RepositoryItem from './RepositoryItem'
+import theme from '../theme'
+//import { useNavigate } from 'react-router-native'
+//import { Picker } from '@react-native-picker/picker'
+import RepositoryListHeader from './RepositoryListHeader' // Import the new header component
+
+
+const ItemSeparator = () => <View style={theme.separator} />
+
+export class RepositoryListContainer extends React.Component {
+
+	renderHeader = () => {
+		const { onSearch, refetch } = this.props
+
+		return (
+			<RepositoryListHeader
+				onSearch={onSearch} // Pass the onSearch function to handle search
+				refetch={refetch}
+			/>
+		)
+	};
+
+
+	render() {
+		const { repositories, handleRepositoryPress, shouldFormat } = this.props
+		const repositoryNodes = repositories
+			? repositories.edges.map(edge => edge.node)
+			: []
+
+		return (
+			<FlatList
+				contentContainerStyle={{ paddingBottom: 95 }}
+				data={repositoryNodes}
+
+				renderItem={({ item }) =>
+					<Pressable onPress={() => handleRepositoryPress(item.id)}>
+						<RepositoryItem item={item} shouldFormat={shouldFormat} />
+					</Pressable>
+				}
+				keyExtractor={(item) => item.id}
+				ItemSeparatorComponent={ItemSeparator}
+				ListHeaderComponent={this.renderHeader}
+			/>
+		)
+	}
 }
+

@@ -57,7 +57,6 @@ const SingleRepositoryView = () => {
 			<View>
 				<RepositoryInfo repository={repository} />
 				<Subheading fontWeight="bold">No reviews available for this repository</Subheading>
-
 			</View>
 		)
 	}

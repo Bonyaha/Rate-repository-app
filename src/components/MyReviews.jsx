@@ -9,7 +9,7 @@ const ItemSeparator = () => <View style={theme.separator} />
 
 
 const MyReviews = () => {
-	const { currentUser, loading, error } = useCurrentUser(true)
+	const { currentUser, loading, error, refetch } = useCurrentUser(true)
 
 	if (loading) {
 		return (
@@ -38,7 +38,7 @@ const MyReviews = () => {
 	if (!hasReviews) {
 		return (
 			<View>
-				<Subheading fontWeight="bold">No reviews available for this repository</Subheading>
+				<Subheading fontWeight="bold">You have no reviews yet</Subheading>
 			</View>
 		)
 	}
@@ -48,7 +48,7 @@ const MyReviews = () => {
 		<FlatList
 			contentContainerStyle={{ paddingBottom: 95 }}
 			data={reviews.map(edge => edge.node)}
-			renderItem={({ item }) => <ReviewItem review={item} showRepositoryFullName={true} />}
+			renderItem={({ item }) => <ReviewItem review={item} showActions={true} refetchReviews={refetch} />}
 			keyExtractor={item => item.id}
 			ItemSeparatorComponent={ItemSeparator}
 		/>

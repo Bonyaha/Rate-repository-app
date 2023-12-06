@@ -4,6 +4,7 @@ import Constants from 'expo-constants'
 import { useApolloClient } from '@apollo/client'
 import useCurrentUser from '../hooks/useCurrentUser'
 import useAuthStorage from '../hooks/useAuthStorage'
+import { useNavigate } from 'react-router-native'
 
 const styles = StyleSheet.create({
 	container: {
@@ -30,12 +31,14 @@ const AppBar = () => {
 	const { currentUser } = useCurrentUser()
 	const authStorage = useAuthStorage()
 	const apolloClient = useApolloClient()
+	const navigate = useNavigate()
 	console.log(authStorage.getAccessToken())
 	const handleSignOut = async () => {
 		// Remove the access token from storage here
 		await authStorage.removeAccessToken()
 		// Reset the Apollo Client store
 		apolloClient.resetStore()
+		navigate('/')
 	}
 
 	return (

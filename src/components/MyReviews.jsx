@@ -22,7 +22,7 @@ const MyReviews = () => {
 	if (error) {
 		return (
 			<View>
-				<Text>Error: {error ? error.message : 'Repository not found'}</Text>
+				<Text>Error: {error ? error.message : 'Reviews not found'}</Text>
 			</View>
 		)
 	}

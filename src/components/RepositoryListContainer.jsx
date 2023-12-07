@@ -11,7 +11,6 @@ export class RepositoryListContainer extends React.Component {
 
 	renderHeader = () => {
 		const { onSearch, refetch } = this.props
-
 		return (
 			<RepositoryListHeader
 				onSearch={onSearch}
@@ -22,7 +21,7 @@ export class RepositoryListContainer extends React.Component {
 
 
 	render() {
-		const { repositories, handleRepositoryPress, shouldFormat } = this.props
+		const { repositories, handleRepositoryPress, shouldFormat, onEndReach } = this.props
 		const repositoryNodes = repositories
 			? repositories.edges.map(edge => edge.node)
 			: []
@@ -31,7 +30,7 @@ export class RepositoryListContainer extends React.Component {
 			<FlatList
 				contentContainerStyle={{ paddingBottom: 95 }}
 				data={repositoryNodes}
-
+				onEndReached={onEndReach}
 				renderItem={({ item }) =>
 					<Pressable onPress={() => handleRepositoryPress(item.id)}>
 						<RepositoryItem item={item} shouldFormat={shouldFormat} />

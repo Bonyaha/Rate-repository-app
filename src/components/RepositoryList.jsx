@@ -9,7 +9,9 @@ const RepositoryList = () => {
 	console.log('I am in RepoList')
 	const [searchKeyword, setSearchKeyword] = useState('')
 	console.log(searchKeyword)
-	const { repositories, refetch } = useRepositories({ searchKeyword })
+	const { repositories, fetchMore, refetch } = useRepositories({
+		first: 8, searchKeyword
+	})
 	const navigate = useNavigate()
 	const location = useLocation()
 
@@ -30,12 +32,17 @@ const RepositoryList = () => {
 		}
 	}, [location])
 
+	const onEndReach = () => {
+		fetchMore()
+	}
+
 	return (
 		<RepositoryListContainer
 			handleRepositoryPress={handleRepositoryPress}
 			repositories={repositories}
 			refetch={refetch}
 			onSearch={handleSearch}
+			onEndReach={onEndReach}
 		/>
 	)
 }

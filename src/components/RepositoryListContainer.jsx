@@ -19,7 +19,6 @@ export class RepositoryListContainer extends React.Component {
 		)
 	};
 
-
 	render() {
 		const { repositories, handleRepositoryPress, shouldFormat, onEndReach } = this.props
 		const repositoryNodes = repositories

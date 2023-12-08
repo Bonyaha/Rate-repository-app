@@ -34,9 +34,7 @@ const AppBar = () => {
 	const navigate = useNavigate()
 	//console.log(authStorage.getAccessToken())
 	const handleSignOut = async () => {
-		// Remove the access token from storage here
 		await authStorage.removeAccessToken()
-		// Reset the Apollo Client store
 		apolloClient.resetStore()
 		navigate('/')
 	}

@@ -11,7 +11,7 @@ const useRepository = ({ id, first }) => {
 	const handleFetchMore = () => {
 		console.log('in handleFetchMore')
 		const canFetchMore = !loading && data?.repository.reviews.pageInfo.hasNextPage
-		console.log(canFetchMore)
+
 		if (!canFetchMore) {
 			return
 		}
@@ -23,7 +23,6 @@ const useRepository = ({ id, first }) => {
 				first
 			},
 		})
-		console.log('fetching more repos')
 	}
 
 	return {

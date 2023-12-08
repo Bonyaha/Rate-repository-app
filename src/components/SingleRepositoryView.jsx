@@ -28,7 +28,7 @@ const RepositoryInfo = ({ repository }) => {
 const SingleRepositoryView = () => {
 	const { id } = useParams()
 
-	const { loading, error, repository, fetchMore } = useRepository({ id, first: 2 })
+	const { loading, error, repository, fetchMore } = useRepository({ id, first: 3 })
 
 	if (loading) {
 		return (

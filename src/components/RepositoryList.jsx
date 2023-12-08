@@ -5,10 +5,7 @@ import { RepositoryListContainer } from './RepositoryListContainer'
 
 
 const RepositoryList = () => {
-
-	//console.log('I am in RepoList')
 	const [searchKeyword, setSearchKeyword] = useState('')
-	//console.log(searchKeyword)
 	const { repositories, fetchMore, refetch } = useRepositories({
 		first: 3, searchKeyword
 	})
@@ -17,7 +14,6 @@ const RepositoryList = () => {
 
 
 	const handleSearch = (keyword) => {
-		//console.log('In handle search')
 		setSearchKeyword(keyword)
 		refetch({ orderBy: 'CREATED_AT', orderDirection: 'DESC', searchKeyword: keyword })
 	}
@@ -33,7 +29,6 @@ const RepositoryList = () => {
 	}, [location])
 
 	const onEndReach = () => {
-		//console.log('I am in onEndReach')
 		fetchMore()
 	}
 

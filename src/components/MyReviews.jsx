@@ -32,7 +32,6 @@ const MyReviews = () => {
 	const reviews = currentUser.reviews.edges
 	console.log(reviews)
 
-	// Check if there are reviews available
 	const hasReviews = reviews.length > 0
 
 	if (!hasReviews) {

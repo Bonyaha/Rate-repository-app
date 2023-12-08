@@ -59,7 +59,7 @@ const ReviewItem = ({ review, showActions = false, refetchReviews }) => {
 		},
 	})
 
-	console.log(review)
+	//console.log(review)
 	const handleViewRepository = () => {
 		navigate(`/repositories/${review.repository.id}`)
 

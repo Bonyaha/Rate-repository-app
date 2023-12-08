@@ -28,7 +28,7 @@ const RepositoryInfo = ({ repository }) => {
 const SingleRepositoryView = () => {
 	const { id } = useParams()
 
-	const { loading, error, repository } = useRepository(id)
+	const { loading, error, repository, fetchMore } = useRepository({ id, first: 2 })
 
 	if (loading) {
 		return (
@@ -47,8 +47,6 @@ const SingleRepositoryView = () => {
 	}
 
 
-	console.log(repository)
-
 	// Check if there are reviews available
 	const hasReviews = repository.reviews.edges.length > 0
 
@@ -61,7 +59,9 @@ const SingleRepositoryView = () => {
 		)
 	}
 
-
+	const handleEndReached = () => {
+		fetchMore()
+	}
 	return (
 		<FlatList
 			contentContainerStyle={{ paddingBottom: 95 }}
@@ -70,6 +70,8 @@ const SingleRepositoryView = () => {
 			renderItem={({ item }) => <ReviewItem review={item} />}
 			keyExtractor={item => item.id}
 			ItemSeparatorComponent={ItemSeparator}
+			onEndReached={handleEndReached}
+		//onEndReachedThreshold={0.5} // Adjust as needed
 		/>
 	)
 }

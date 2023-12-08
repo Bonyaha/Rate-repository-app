@@ -31,6 +31,7 @@ export class RepositoryListContainer extends React.Component {
 				contentContainerStyle={{ paddingBottom: 95 }}
 				data={repositoryNodes}
 				onEndReached={onEndReach}
+				//onEndReachedThreshold={0.5}
 				renderItem={({ item }) =>
 					<Pressable onPress={() => handleRepositoryPress(item.id)}>
 						<RepositoryItem item={item} shouldFormat={shouldFormat} />

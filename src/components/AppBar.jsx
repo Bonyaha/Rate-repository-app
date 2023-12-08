@@ -32,7 +32,7 @@ const AppBar = () => {
 	const authStorage = useAuthStorage()
 	const apolloClient = useApolloClient()
 	const navigate = useNavigate()
-	console.log(authStorage.getAccessToken())
+	//console.log(authStorage.getAccessToken())
 	const handleSignOut = async () => {
 		// Remove the access token from storage here
 		await authStorage.removeAccessToken()

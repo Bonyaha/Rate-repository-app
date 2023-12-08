@@ -1,7 +1,7 @@
 import { GET_REPOSITORIES } from '../graphql/queries'
 import { useQuery } from '@apollo/client'
 
-const useRepositories = ({ orderBy = 'CREATED_AT', orderDirection = 'DESC', searchKeyword }) => {
+const useRepositories = ({ orderBy = 'CREATED_AT', orderDirection = 'DESC', searchKeyword, first }) => {
 	//console.log('in useRepositories hook')
 	/* console.log({
 		orderBy,
@@ -12,21 +12,31 @@ const useRepositories = ({ orderBy = 'CREATED_AT', orderDirection = 'DESC', sear
 		variables: {
 			orderBy,
 			orderDirection,
-			searchKeyword
+			searchKeyword,
+			first
 		},
 		fetchPolicy: 'cache-and-network',
 	})
-	const handleFetchMore = () => {
-		const canFetchMore = !loading && data?.repositories.pageInfo.hasNextPage
+	//console.log(data)
+	//console.log(fetchMore)
+	//console.log(data.repositories.pageInfo.endCursor)
 
+	const handleFetchMore = () => {
+		console.log('in handleFetchMore')
+		const canFetchMore = !loading && data?.repositories.pageInfo.hasNextPage
+		console.log(canFetchMore)
 		if (!canFetchMore) {
 			return
 		}
-
+		console.log(data.repositories)
+		console.log(data.repositories.pageInfo.endCursor)
 		fetchMore({
 			variables: {
 				after: data.repositories.pageInfo.endCursor,
-				...variables,
+				orderBy,
+				orderDirection,
+				searchKeyword,
+				first
 			},
 		})
 	}

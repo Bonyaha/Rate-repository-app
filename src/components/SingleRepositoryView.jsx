@@ -46,8 +46,6 @@ const SingleRepositoryView = () => {
 		)
 	}
 
-
-	// Check if there are reviews available
 	const hasReviews = repository.reviews.edges.length > 0
 
 	if (!hasReviews) {

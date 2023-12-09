@@ -1,4 +1,4 @@
-import React /* { useEffect, useState } */ from 'react'
+import React from 'react'
 import { FlatList, View, Pressable } from 'react-native'
 import RepositoryItem from './RepositoryItem'
 import theme from '../theme'
